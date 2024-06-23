@@ -16,7 +16,7 @@
 
 body * {
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
 }
 
@@ -343,7 +343,16 @@ body .fad {
   margin: 100px 0;
 } /* Vertical margin */
 
+/* BUTTON ------------------------------------------------------- */
+.default-button {
+  background-color: #a4c9d2;
+  width: 70px;
+  color: #ffffff;
+  border-radius: 10px;
+  margin-left: 10px;
+}
 /* ------ ------------------------------------------------------- */
+
 .avatar {
   width: 50px;
   border-radius: 25px;
@@ -363,12 +372,12 @@ body .fad {
 }
 
 .user {
-  padding: 20px;
+  padding: 10px 20px;
   background-color: #eeeeee;
   max-width: 70%;
   margin: 30px 0;
   margin-left: auto;
-  border-radius: 40px;
+  border-radius: 20px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
 }

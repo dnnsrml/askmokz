@@ -33,19 +33,22 @@ const AutoResizeTextArea = ({ id, onSubmit }) => {
 
   return (
     <form
-      className="flex-col full-width aligned-items justified-center p30"
+      className="flex-row full-width aligned-items spaced-between p30"
       onSubmit={handleSubmit}
     >
       <textarea
         id={id}
         ref={textareaRef}
-        className="input-area auto-resize-textarea full-width p20"
+        className="input-area auto-resize-textarea child-1 p10"
         rows="1"
         value={value}
         placeholder="Ask me anything.."
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
+      <button type="submit" className="default-button p10">
+        Send
+      </button>
     </form>
   );
 };
