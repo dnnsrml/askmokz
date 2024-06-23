@@ -2,11 +2,12 @@ const express = require("express");
 const axios = require("axios");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const path = require("path");
 
 dotenv.config();
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(cors());
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
   next();
 });
 
+// API endpoint to handle OpenAI requests
 app.post("/api/openai", async (req, res) => {
   const { messages } = req.body;
 
@@ -49,6 +51,14 @@ app.post("/api/openai", async (req, res) => {
       details: error.response?.data || error,
     });
   }
+});
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "../build")));
+
+// The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
 });
 
 app.listen(port, () => {
