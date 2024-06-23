@@ -6,6 +6,8 @@ const useMessageHandler = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const apiUrl = process.env.REACT_APP_ROOT_URL;
+
   const resetConversation = () => {
     setConversation([]);
   };
@@ -22,7 +24,7 @@ const useMessageHandler = () => {
       const limitedConversation = [...conversation, message].slice(-4);
 
       try {
-        const result = await axios.post(`/api/openai`, {
+        const result = await axios.post(`${apiUrl}/api/openai`, {
           messages: limitedConversation,
         });
 
