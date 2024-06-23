@@ -22,12 +22,9 @@ const useMessageHandler = () => {
       const limitedConversation = [...conversation, message].slice(-4);
 
       try {
-        const result = await axios.post(
-          `${process.env.REACT_APP_ROOT_URL}/api/openai`,
-          {
-            messages: limitedConversation,
-          }
-        );
+        const result = await axios.post(`/api/openai`, {
+          messages: limitedConversation,
+        });
 
         const botMessage = {
           role: "assistant",
